@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText mEditText;
     EditText mEditText2;
     android.support.v7.widget.Toolbar mToolBar;
+    private int  mToolbarColorState;
 
 
     @Override
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mEditText = (EditText) findViewById(R.id.edittext);
         mEditText2 = (EditText) findViewById(R.id.edittext2);
         mToolBar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        mToolbarColorState = 0;
 
         setupToolbar();
     }
@@ -87,18 +89,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.item_red: {
                 Toast.makeText(this, "You click the Red button!", Toast.LENGTH_SHORT).show();
-                mToolBar.setBackgroundColor(Color.rgb(255, 0, 0));  //set toolbar color to green
+                mToolBar.setBackgroundColor(Color.rgb(255, 0, 0));  //set toolbar color to red
+                mToolbarColorState = 1;  //assigning variable state = 1 (red)
             }
 
 
             case R.id.item_green: {
                 Toast.makeText(this, "You click the Green button!", Toast.LENGTH_SHORT).show();
                 mToolBar.setBackgroundColor(Color.rgb(0, 255, 0));  //set toolbar color to green
+                mToolbarColorState = 2;  //assigning variable state = 2 (green)
             }
 
             case R.id.item_blue: {
                 Toast.makeText(this, "You click the Blue button!", Toast.LENGTH_SHORT).show();
                 mToolBar.setBackgroundColor(Color.rgb(0, 0, 255));  //set toolbar color to blue
+                mToolbarColorState = 3;  //assigning variable state = 3 (blue)
             }
 
 
@@ -164,6 +169,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Lg.e(this.getLocalClassName(), "on restore instant state");
         int vivsibleState = savedInstanceState.getBoolean(VISIBLE_KEY) ? View.VISIBLE : View.INVISIBLE;
                 mEditText.setVisibility(vivsibleState);
+
+        switch (mToolbarColorState){
+            case 1: {
+                mToolBar.setBackgroundColor(Color.rgb(255, 0, 0));  //set toolbar color to red
+                //mToolbarColorState = 1;  //assigning variable state = 1 (red)
+            }
+            case 2: {
+                mToolBar.setBackgroundColor(Color.rgb(0, 255, 0));  //set toolbar color to green
+                //mToolbarColorState = 2;  //assigning variable state = 2 (green)
+            }
+            case 3: {
+                mToolBar.setBackgroundColor(Color.rgb(0, 0, 255));  //set toolbar color to green
+               //mToolbarColorState = 3;  //assigning variable state = 3 (blue)
+            }
+
+        }
 
     }
 }
