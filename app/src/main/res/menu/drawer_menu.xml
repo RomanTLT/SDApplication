@@ -7,17 +7,23 @@
        android:checked="true"
        android:title="@string/drawer.profile"
        android:icon="@drawable/ic_assignment_ind_24dp" />
+
     <item
         android:id="@+id/drawer_contacts"
-        android:title="@string/drawer.contacts"/>
+        android:title="@string/drawer.contacts"
+        android:icon="@drawable/ic_contactsl_24dp" />
+
     <item
         android:id="@+id/drawer_team"
-        android:title="@string/drawer.team"/>
+        android:title="@string/drawer.team"
+        android:icon="@drawable/ic_team_24dp" />
     <item
         android:id="@+id/drawer_tasks"
-        android:title="@string/drawer.tasks"/>
+        android:title="@string/drawer.tasks"
+        android:icon="@drawable/ic_tasks_24dp" />
     <item
         android:id="@+id/drawer_setting"
-        android:title="@string/drawer.setting"/>
+        android:title="@string/drawer.setting"
+        android:icon="@drawable/ic_settings_24dp" />
 
 </menu>
